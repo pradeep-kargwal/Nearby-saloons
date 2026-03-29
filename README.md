@@ -1,16 +1,65 @@
-# beauty_master
+# Nearby Saloons - Places Directory App
 
-A new Flutter project.
+A Flutter app that discovers nearby beauty salons, spas, and barbershops using Google Places API.
 
-## Getting Started
+## Features
+- Google Places nearby search with real photos and reviews
+- Voice search (speech-to-text)
+- Category filtering (Hair Salon, Nail Salon, Spa, Beauty, Makeup)
+- Sort by distance, rating, name, reviews
+- WhatsApp integration for booking
+- Call-to-book with phone dialer
+- Google Maps with markers
+- Favorites system
+- Pull-to-refresh
+- Dark mode
 
-This project is a starting point for a Flutter application.
+## Setup on New Machine
 
-A few resources to get you started if this is your first Flutter project:
+### 1. Clone the repo
+```bash
+git clone https://github.com/pradeep-kargwal/Nearby-saloons.git
+cd Nearby-saloons
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### 2. Install Flutter
+Make sure Flutter SDK is installed: https://docs.flutter.dev/get-started/install
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 3. Get dependencies
+```bash
+flutter pub get
+```
+
+### 4. Add your API keys
+Edit `lib/utils/BMConstants.dart` and replace:
+```dart
+const String googlePlacesApiKey = 'YOUR_GOOGLE_MAPS_API_KEY';
+const String openAIApiKey = 'YOUR_OPENAI_API_KEY';
+```
+
+Also update the API key in `android/app/src/main/AndroidManifest.xml`:
+```xml
+android:value="YOUR_GOOGLE_MAPS_API_KEY"
+```
+
+### 5. Generate MobX files
+```bash
+dart run build_runner build --delete-conflicting-outputs
+```
+
+### 6. Run the app
+```bash
+flutter run
+```
+
+## API Keys Needed
+- **Google Maps Platform** (enable Places API, Maps SDK, Geocoding API)
+- **OpenAI** (for AI review summaries and chat)
+
+## Tech Stack
+- Flutter 3.x
+- MobX (state management)
+- Google Places API
+- Google Maps SDK
+- Speech-to-text
+- URL Launcher (WhatsApp, Phone, Maps)
